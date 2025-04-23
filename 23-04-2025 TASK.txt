@@ -1,0 +1,125 @@
+Question 1
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode dummy = new ListNode();
+        dummy.next = head;
+        ListNode left = dummy;
+        ListNode right = dummy;
+        for(int i = 0;i<=n;i++){
+            right = right.next;
+        }
+
+        while(right!=null){
+            right = right.next;
+            left  = left.next;
+        }
+        left.next= left.next.next;
+        return dummy.next;
+        
+    }
+
+}
+
+
+SUBMITION LINK - https://leetcode.com/problems/remove-nth-node-from-end-of-list/submissions/1615349034
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+Question 2
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode removeElements(ListNode head, int val) {
+        ListNode dummy = new ListNode();
+        dummy.next = head;
+        ListNode current = dummy;
+        while(current!=null && current.next!=null){
+            if(current.next.val == val ){
+                current.next = current.next.next;
+            }else{
+            current = current.next;
+            }
+        }
+
+        return dummy.next;
+
+    }
+}
+SUBMITION LINK - https://leetcode.com/problems/remove-linked-list-elements/submissions/1615359352
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Question 3
+
+public class Solution {
+	public int numSetBits(long a) {
+        int count = 0;
+        while(a>0){
+            if((a&1)==1){
+                count +=1;
+            }
+            a = a>>1;
+        }
+        
+        return count;
+        
+	}
+}
+
+SUBMITION LINK - https://moonshot.scaler.com/s/sl/Mte8BC60ev
+NOTE - I WAS NOT ABLE TO FIND A SHARE BUTTON ON INTERVIEW BIT 
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Question 4
+class Solution {
+    public boolean isPowerOfTwo(int n) {
+        if (n<=0){
+            return false;
+        }
+        while(n>1){
+            if((n&1) ==1){
+                return false;
+            }
+            n = n>>1;
+        }
+        
+
+        return true;
+    }
+}
+
+SOLUTION LINK - https://leetcode.com/problems/power-of-two/submissions/1615399558
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Question 5
+class Solution {
+    public int missingNumber(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length -1;
+        int index = 0;
+        for(int i = 0 ; i<nums.length;i++){
+            int ans = index^nums[i];
+            if(ans !=0){
+                return index;
+            }
+            index +=1;
+        }
+        return n+1;
+    }
+}
+
+SOLUTION LINK - https://leetcode.com/problems/missing-number/submissions/1615384977
