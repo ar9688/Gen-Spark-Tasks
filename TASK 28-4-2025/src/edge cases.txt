@@ -1,0 +1,7 @@
+stack
+1.if head equals null we cannot pop
+2.if head equlas null we cannot peak
+
+queue
+1.if queue is null we cannot delete
+2. if head is the only element just delete te head
